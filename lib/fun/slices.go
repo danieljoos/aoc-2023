@@ -45,6 +45,10 @@ func Sum[T constraints.Integer](s []T) T {
 	return Reduce(s, func(v, prev T) T { return prev + v }, 0)
 }
 
+func Product[T constraints.Integer](s []T) T {
+	return Reduce(s, func(v, prev T) T { return prev * v }, 1)
+}
+
 func Min[T constraints.Integer](s []T) T {
 	return Reduce(s[1:], func(v, prev T) T {
 		if v < prev {
