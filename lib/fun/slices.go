@@ -1,6 +1,8 @@
 package fun
 
 import (
+	"slices"
+
 	"golang.org/x/exp/constraints"
 )
 
@@ -43,6 +45,15 @@ func Sum[T constraints.Integer](s []T) T {
 	return Reduce(s, func(v, prev T) T { return prev + v }, 0)
 }
 
+func Min[T constraints.Integer](s []T) T {
+	return Reduce(s[1:], func(v, prev T) T {
+		if v < prev {
+			return v
+		}
+		return prev
+	}, s[0])
+}
+
 func Max[T constraints.Integer](s []T) T {
 	return Reduce(s[1:], func(v, prev T) T {
 		if v > prev {
@@ -50,4 +61,31 @@ func Max[T constraints.Integer](s []T) T {
 		}
 		return prev
 	}, s[0])
+}
+
+func Split[T any, S ~[]T](s S, pred func(v T) bool) []S {
+	n := Count(s, pred) + 1
+	result := make([]S, n)
+	n--
+	i := 0
+	for i < n {
+		idx := slices.IndexFunc(s, pred)
+		if idx < 0 {
+			break
+		}
+		result[i] = s[:idx]
+		s = s[idx+1:]
+		i++
+	}
+	result[i] = s
+	return result
+}
+
+func Count[T any, S ~[]T](s S, pred func(v T) bool) int {
+	return Reduce(s, func(v T, prev int) int {
+		if pred(v) {
+			return prev + 1
+		}
+		return prev
+	}, 0)
 }
