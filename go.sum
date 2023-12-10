@@ -1,3 +1,5 @@
+github.com/TheAlgorithms/Go v0.0.3-alpha.0.20231210080233-c1688bfe8490 h1:kmrjKfzbNw8XbzRbUWJgXkL2r8RYRpKpKTKeqrXRce4=
+github.com/TheAlgorithms/Go v0.0.3-alpha.0.20231210080233-c1688bfe8490/go.mod h1:FbYc+n6t3GZ2y0PnVa9lar7fDO21L2tP/xMPld6s5QU=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
